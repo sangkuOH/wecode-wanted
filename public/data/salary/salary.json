@@ -1,0 +1,25 @@
+{
+  "salary":
+  {
+    "corpIcon":
+    {
+      "img": {
+        "line": "https://static.wanted.co.kr/images/wdes/0_5_e7951e6c-5282-42c2-b2b1-741b0824a747.jpg",
+        "nhn": "https://static.wanted.co.kr/images/wdes/0_5.9ebf8983.jpg",
+        "wemakeprice": "https://static.wanted.co.kr/images/wdes/0_5.ad4abbda.jpg",
+        "yanolja": "https://static.wanted.co.kr/images/wdes/0_5_35b131c9-5b04-4248-a0bd-1f39240406df.jpg",
+        "toss": "https://static.wanted.co.kr/images/wdes/0_5.18dfe4ff.jpg",
+        "naver": "https://static.wanted.co.kr/images/wdes/0_5_465f0a8c-3b5b-4004-be0b-13f3c1c08200.jpg",
+        "lg": "https://static.wanted.co.kr/images/wdes/0_5.a6ddfb4a.jpg",
+        "kakao": "https://static.wanted.co.kr/images/wdes/0_5.a10206f5.jpg",
+        "bamin": "https://static.wanted.co.kr/images/wdes/0_5.8f75d757.jpg",
+        "doosan": "https://static.wanted.co.kr/images/wdes/0_5.7a05ba42.jpg",
+        "gs": "https://static.wanted.co.kr/images/wdes/0_5.cc9b552a.jpg",
+        "amrway": "https://static.wanted.co.kr/images/wdes/0_5.f196b9b9.jpg",
+        "mitubish": "https://static.wanted.co.kr/images/wdes/0_5.6060f08d.jpg",
+        "rion": "https://static.wanted.co.kr/images/wdes/0_5.e810f1c7.jpg",
+        "t": "https://static.wanted.co.kr/images/wdes/0_5.985b9922.jpg"
+      }
+    }
+  }
+}

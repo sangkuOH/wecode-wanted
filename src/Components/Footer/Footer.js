@@ -95,6 +95,7 @@ const FunctionLang = styled.div `
   position: relative;
   width: 250px;
   height: 36px;
+  
   img {
     position: absolute;
     top: 50%;
@@ -103,6 +104,7 @@ const FunctionLang = styled.div `
     height: 14px;
     transform: translateY(-50%);
   }
+
   select {
     width: 100%;
     height: 36px;
@@ -115,10 +117,12 @@ const FunctionLang = styled.div `
     appearance: none;
     outline: none;
   }
+
   option {
     min-height: 1.2em;
     padding: 0px 2px 1px;
   }
+
   i::before {
     display: inline-block;
     content: '';
@@ -136,6 +140,7 @@ const FooterList = styled.div `
   max-width: 1060px;
   width: 90%;
   margin: 0 auto 25px;
+
   p {
     width: calc(100% - 250px);
     font-size: 12px;

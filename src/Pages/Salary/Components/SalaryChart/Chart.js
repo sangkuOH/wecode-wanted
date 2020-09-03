@@ -88,7 +88,7 @@ function Chart(props) {
         })
         .transition()
           .duration(1000)
-          .ease(easeCircleInOut)  
+          .ease(easeCircleInOut)
           .attr("y", d => y(d.value))
           .attr("height", d => y(0) - y(d.value) )
     

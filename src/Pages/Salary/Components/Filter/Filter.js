@@ -188,7 +188,7 @@ const Content = styled.select`
 
 const ItemWrap = styled.span `
 
-  ::after{
+  &::after {
     position: absolute;
     display: inline-block;
     top: 50%;
