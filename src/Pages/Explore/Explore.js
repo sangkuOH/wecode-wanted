@@ -1,13 +1,8 @@
-import React, { Component } from 'react';
+import React from "react";
+import JobSlide from "./JobSlide/JobSlide";
 
-class Explore extends Component {
-  render() {
-    return (
-      <div>
-        
-      </div>
-    );
-  }
-}
+const Explore = () => {
+  return <JobSlide />;
+};
 
 export default Explore;
