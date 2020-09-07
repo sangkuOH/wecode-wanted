@@ -1,0 +1,264 @@
+{
+  "salary_list": [
+  {
+  "main_category": "개발",
+  "sub_category": "파이썬 개발자",
+  "salary": [
+  [
+  0,
+  3154
+  ],
+  [
+  1,
+  3387
+  ],
+  [
+  2,
+  3516
+  ],
+  [
+  3,
+  3636
+  ],
+  [
+  4,
+  3949
+  ],
+  [
+  5,
+  4252
+  ],
+  [
+  6,
+  4544
+  ],
+  [
+  7,
+  4844
+  ],
+  [
+  8,
+  5054
+  ],
+  [
+  9,
+  5327
+  ],
+  [
+  10,
+  5610
+  ]
+  ]
+  },
+  {
+  "main_category": "개발",
+  "sub_category": "프론트엔드 개발자",
+  "salary": [
+  [
+  0,
+  2662
+  ],
+  [
+  1,
+  3010
+  ],
+  [
+  2,
+  3294
+  ],
+  [
+  3,
+  3477
+  ],
+  [
+  4,
+  3730
+  ],
+  [
+  5,
+  3958
+  ],
+  [
+  6,
+  4236
+  ],
+  [
+  7,
+  4541
+  ],
+  [
+  8,
+  4735
+  ],
+  [
+  9,
+  5044
+  ],
+  [
+  10,
+  5610
+  ]
+  ]
+  },
+  {
+  "main_category": "개발",
+  "sub_category": "웹 개발자",
+  "salary": []
+  },
+  {
+  "main_category": "개발",
+  "sub_category": "서버 개발자",
+  "salary": []
+  },
+  {
+  "main_category": "개발",
+  "sub_category": "자바 개발자",
+  "salary": []
+  },
+  {
+  "main_category": "개발",
+  "sub_category": "안드로이드 개발자",
+  "salary": []
+  },
+  {
+  "main_category": "개발",
+  "sub_category": "iOS 개발자",
+  "salary": []
+  },
+  {
+  "main_category": "개발",
+  "sub_category": "데이터 엔지니어",
+  "salary": []
+  },
+  {
+  "main_category": "개발",
+  "sub_category": "DevOps / 시스템 관리자",
+  "salary": []
+  },
+  {
+  "main_category": "개발",
+  "sub_category": "Node.js 개발자",
+  "salary": []
+  },
+  {
+  "main_category": "개발",
+  "sub_category": "시스템,네트워크 관리자",
+  "salary": []
+  },
+  {
+  "main_category": "개발",
+  "sub_category": "C,C++ 개발자",
+  "salary": []
+  },
+  {
+  "main_category": "개발",
+  "sub_category": "데이터 사이언티스트",
+  "salary": []
+  },
+  {
+  "main_category": "개발",
+  "sub_category": "머신러닝 엔지니어",
+  "salary": []
+  },
+  {
+  "main_category": "개발",
+  "sub_category": "개발 매니저",
+  "salary": []
+  },
+  {
+  "main_category": "개발",
+  "sub_category": "빅데이터 엔지니어",
+  "salary": []
+  },
+  {
+  "main_category": "개발",
+  "sub_category": "PHP 개발자",
+  "salary": []
+  },
+  {
+  "main_category": "개발",
+  "sub_category": "기술지원",
+  "salary": []
+  },
+  {
+  "main_category": "개발",
+  "sub_category": "QA,테스트 엔지니어",
+  "salary": []
+  },
+  {
+  "main_category": "개발",
+  "sub_category": "프로덕트 매니저",
+  "salary": []
+  },
+  {
+  "main_category": "개발",
+  "sub_category": "보안 엔지니어",
+  "salary": []
+  },
+  {
+  "main_category": "개발",
+  "sub_category": ".NET 개발자",
+  "salary": []
+  },
+  {
+  "main_category": "개발",
+  "sub_category": "웹 퍼블리셔",
+  "salary": []
+  },
+  {
+  "main_category": "개발",
+  "sub_category": "하드웨어 엔지니어",
+  "salary": []
+  },
+  {
+  "main_category": "개발",
+  "sub_category": "영상,음성 엔지니어",
+  "salary": []
+  },
+  {
+  "main_category": "개발",
+  "sub_category": "블록체인 플랫폼 엔지니어",
+  "salary": []
+  },
+  {
+  "main_category": "개발",
+  "sub_category": "임베디드 개발자",
+  "salary": []
+  },
+  {
+  "main_category": "개발",
+  "sub_category": "루비온레일즈 개발자",
+  "salary": []
+  },
+  {
+  "main_category": "개발",
+  "sub_category": "CTO,Chief Technology Officer",
+  "salary": []
+  },
+  {
+  "main_category": "개발",
+  "sub_category": "그래픽스 엔지니어",
+  "salary": []
+  },
+  {
+  "main_category": "개발",
+  "sub_category": "BI 엔지니어",
+  "salary": []
+  },
+  {
+  "main_category": "개발",
+  "sub_category": "CIO,Chief Information Officer",
+  "salary": []
+  },
+  {
+  "main_category": "개발",
+  "sub_category": "소프트웨어 엔지니어",
+  "salary": []
+  },
+  {
+  "main_category": "개발",
+  "sub_category": "크로스플랫폼 앱 개발자",
+  "salary": []
+  }
+  ]
+}

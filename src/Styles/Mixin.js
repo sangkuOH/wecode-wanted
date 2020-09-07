@@ -1,10 +1,15 @@
 import { css } from "styled-components";
 
 const mixIn = {
-  center: (position) => css`
+  flex: (
+    flexDirection = "row",
+    justfiycontent = "center",
+    alignItems = "center"
+  ) => css`
     display: flex;
-    justify-content: ${position};
-    align-items: center;
+    flex-direction: ${flexDirection};
+    justify-content: ${justfiycontent};
+    align-items: ${alignItems};
   `,
 };
 export default mixIn;
