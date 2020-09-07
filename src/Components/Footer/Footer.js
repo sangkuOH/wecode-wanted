@@ -73,25 +73,28 @@ const FunctionList = styled.div`
   display: flex;
   width: calc(100% - 250px);
 `
-const ListLogo = styled.div `
+
+const ListLogo = styled.div`
   ${mixIn.flex("center")};
   height: 36px;
   margin-right: 50px;
 `
-const ListHeader = styled.div `
+
+const ListHeader = styled.div`
   display: flex;
   font-size: 16px;
 `
 
-const HeaderItems = styled.span `
+const HeaderItems = styled.span`
   margin-right: 45px;
+
   .use {
     line-height: 36px;
     font-weight: 400;
     color: hsla(0,0%,100%,.8);
   }
 `
-const FunctionLang = styled.div `
+const FunctionLang = styled.div`
   position: relative;
   width: 250px;
   height: 36px;
@@ -104,7 +107,6 @@ const FunctionLang = styled.div `
     height: 14px;
     transform: translateY(-50%);
   }
-
   select {
     width: 100%;
     height: 36px;
@@ -117,12 +119,10 @@ const FunctionLang = styled.div `
     appearance: none;
     outline: none;
   }
-
   option {
     min-height: 1.2em;
     padding: 0px 2px 1px;
   }
-
   i::before {
     display: inline-block;
     content: '';
@@ -135,12 +135,11 @@ const FunctionLang = styled.div `
   }
 `
 
-const FooterList = styled.div `
+const FooterList = styled.div`
   height: 36%;
   max-width: 1060px;
   width: 90%;
   margin: 0 auto 25px;
-
   p {
     width: calc(100% - 250px);
     font-size: 12px;

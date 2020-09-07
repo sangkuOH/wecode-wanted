@@ -1,44 +1,44 @@
-import React, { Component } from 'react';
-import styled from 'styled-components';
+import React from 'react';
 import CorpIcon from './CorpIcon';
+import styled from 'styled-components';
 
 
-class Sleep extends Component {
-  render() {
-    return (
-      <Page>
-        <Container>
-          <SmallHeader>
-            <span>
-              <Sup>*</Sup>
-              이 데이터는 채용 정보에 포함된 직무 별 요구 경력(최저, 최대)과 연봉(최저, 최대)을 바탕으로 추정한 예상 연봉 데이터입니다.
-            </span>
-          </SmallHeader>
-          <MainContainer>
-            <Wrap>
-              <MainHeader>
-                이제 밤새워 채용사이트 보지 마세요.
-              </MainHeader>
-              <MainDescription>
-                원티드 매치업에 프로필을 등록하면, 기업의 인사담당자가 직접 면접을 제안합니다.
-              </MainDescription>
-              <MainIcons>
-                <CorpIcon />
-              </MainIcons>
-              <MainBtn>시작하기</MainBtn>
-            </Wrap>
-            <BigHeader>
-              <HeaderContent>
-                연봉 업그레이드 포지션
-                <HeaderBtn>더보기</HeaderBtn>
-              </HeaderContent>
-            </BigHeader>
-          </MainContainer>
-        </Container>
-      </Page>
-    );
-  }
+function Sleep() {
+  return (
+    <Page>
+      <Container>
+        <SmallHeader>
+          <span>
+            <Sup>*</Sup>
+            이 데이터는 채용 정보에 포함된 직무 별 요구 경력(최저, 최대)과 연봉(최저, 최대)을 바탕으로 추정한 예상 연봉 데이터입니다.
+          </span>
+        </SmallHeader>
+        <MainContainer>
+          <Wrap>
+            <MainHeader>
+              이제 밤새워 채용사이트 보지 마세요.
+            </MainHeader>
+            <MainDescription>
+              원티드 매치업에 프로필을 등록하면, 기업의 인사담당자가 직접 면접을 제안합니다.
+            </MainDescription>
+            <MainIcons>
+              <CorpIcon />
+            </MainIcons>
+            <MainBtn>시작하기</MainBtn>
+          </Wrap>
+          <BigHeader>
+            <HeaderContent>
+              연봉 업그레이드 포지션
+              <HeaderBtn>더보기</HeaderBtn>
+            </HeaderContent>
+          </BigHeader>
+        </MainContainer>
+      </Container>
+    </Page>
+  );
 }
+
+export default Sleep;
 
 const Page = styled.div `
   background-color: #F8F8FA;
@@ -132,15 +132,13 @@ const HeaderBtn = styled.button `
   border-radius: 3px;
   outline: none;
   cursor: pointer;
-  color: #B5B5B5;
   font-size: 16px;
   font-weight: 600;
+  color: #B5B5B5;
+  background: none;
   transform: translateY(-50%);
 
   &:hover {
     color: #757575;
   }
 `
-
-
-export default Sleep;

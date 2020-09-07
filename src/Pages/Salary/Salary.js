@@ -12,14 +12,8 @@ function Salary() {
   },[]);
 
   const loadData = async () => {
-    // const res = await fetch('http://localhost:8000/companies/salary',
-    const res = await fetch('/data/filter/filter.json',
-    {
-      headers : { 
-        'Content-Type': 'application/json',
-        'Accept': 'application/json'
-       }
-    });
+    const res = await fetch('http://192.168.0.23:8000/companies/salary')
+    // const res = await fetch('/data/filter/filter.json')
     const data = await res.json();
     await setData(data);
   }
@@ -35,7 +29,7 @@ function Salary() {
 
 export default Salary
 
-const SalaryContainer = styled.div `
+const SalaryContainer = styled.div`
   position: relative;
   background-color: #F8F8FA;
 `

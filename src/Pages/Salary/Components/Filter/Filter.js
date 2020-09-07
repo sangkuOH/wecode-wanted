@@ -6,40 +6,39 @@ import styled from 'styled-components';
 function Filter(props) {
   const [ job, setJob ] = useState();
   const [ position, setPosition ] = useState();
-  const [ career, setCareer ] = useState();
+  const [ career, setCareer ] = useState("");
   const [ chartData, setChartData] = useState();
+  const [ jobValue, setJobValue] = useState("개발");
+  const [ positionValue, setPostionValue ] = useState("파이썬 개발자");
+  const [ compare, setCompare ] = useState();
   const jobSelect = useRef();
-  
-  let salrayList = props.data.salary_list;
-  
-  useEffect(()=>{
+
+  const salrayList = props.data.salary_list;
+
+  useEffect(() => {
     setJob(getFirstDepth());
     setPosition(getSecondDepth('개발'));
     setChartData(getSalary('개발', '파이썬 개발자'));
   },[]);
 
-  //직업 대분류 셀렉트박스
   const getFirstDepth = () => {
     let mainCategory = new Set();
     salrayList.forEach(obj => {
-      let job = obj.main_category;
-      mainCategory.add(job);
+      mainCategory.add(obj.main_category);
     });
-    return Array.from(mainCategory);
+    return [...mainCategory];
   }
 
-  //직업 소분류 셀렉트박스
   const getSecondDepth= (value) => {
-    let subCategory = new Set();
+    const subCategory = new Set();
     salrayList.forEach(obj => {
       if(obj.main_category === value){
         subCategory.add(obj.sub_category);
       }
     });
-    return Array.from(subCategory);
+    return [...subCategory];
   }
   
-  //연차 별 연봉 데이터
   const getSalary = (main, sub) => {
     let salary = [];
     salrayList.forEach(obj => {
@@ -51,12 +50,17 @@ function Filter(props) {
   };
 
   const onChange = (e) => {
-    if(e.target.name === "job"){
-      setPosition(getSecondDepth(e.target.value));
-    } else if (e.target.name === "position"){
-      setChartData(getSalary(jobSelect.current.value,  e.target.value));
+    const { name, value } = e.target;
+    if(name === "job"){
+      setPosition(getSecondDepth(value));
+      setJobValue(value);
+    } else if (name === "position"){
+      setChartData(getSalary(jobSelect.current.value, value));
+      setPostionValue(value);
+    } else if (name === "career"){
+      setCareer(value);
     } else {
-      setCareer(e.target.value)
+      setCompare(value);
     }
   }
 
@@ -66,8 +70,8 @@ function Filter(props) {
         <ItemWrap>
           <Content ref={jobSelect} name={'job'} onChange={onChange}>
           {
-            data.map((val) => {
-            return <option>{val}</option>
+            data.map((val, idx) => {
+            return <option key={idx}>{val}</option>
             })
           }
           </Content>
@@ -75,14 +79,15 @@ function Filter(props) {
       </Item>
     )
   }
+  
   const sencondDepthOption = (data) =>{
     return(
       <Item>
         <ItemWrap>
-          <Content name={'position'} onChange={onChange}>
-          {
-            data.map((val) => {
-            return <option>{val}</option>
+          <Content name="position" onChange={onChange}>
+          { 
+            data.map((val, idx) => {
+            return <option key={idx}>{val}</option>
             })
           }
           </Content>
@@ -95,14 +100,15 @@ function Filter(props) {
     return(
       <Item>
         <ItemWrap>
-          <Content name={'career'} onChange={onChange}>
-            {data && data.map(el => {
+          <Content career={career} name="career" onChange={onChange}>
+          <option disabled selected>경력</option>
+            {data && data.map((el, idx) => {
               if (el === "0" ){
-                return <option>신입</option>
+                return <option key={idx}>신입</option>
               } else if (!isNaN(el)) {
-                return <option>{`${el}년`}</option>
+                return <option key={idx}>{`${el}년`}</option>
               }
-              return <option>{el}</option>}
+              return <option key={idx}>{el}</option>}
             )}
           </Content>
         </ItemWrap>
@@ -112,14 +118,20 @@ function Filter(props) {
 
   return (
     <Page>
-      {chartData && < SalaryChart chartData={chartData} />}
+      {chartData && < SalaryChart 
+        chartData={chartData}
+        jobValue={jobValue}
+        career={career}
+        positionValue={positionValue}
+        compare={compare}
+      />}
       <Container>
         <Box>
           {job && firstDepthOption(job)}
           {position && sencondDepthOption(position)}
           {chartData && careerDepthOption(Object.keys(chartData), "career")}
-          <Item>
-            <input disabled={ career ? false : true } type="text" placeholder="연봉" />
+          <Item className={career ? "currency" : ""} >
+            <input className={career ? "active" : ""} disabled={ career ? false : true } type="number" placeholder="연봉" onChange={onChange} />
           </Item>
         </Box>
       </Container>
@@ -127,22 +139,23 @@ function Filter(props) {
   );
 }
 
+
 export default Filter;
 
-const Page = styled.div `
+const Page = styled.div`
   left: 0;
   right: 0;
   bottom: -24px;
 `
 
-const Container = styled.div `
+const Container = styled.div`
   width: 87.72%;
   max-width: 1060px;
   margin: 0 auto;
   margin-top: -1%;
 `
 
-const Box = styled.ul `
+const Box = styled.ul`
   height: 44.5px;
   background: #FFFFFF;
   box-shadow: 0 2px 2px 0 rgba(1,1,1,0.2);
@@ -152,11 +165,25 @@ const Item = styled.li`
   position: relative;
   display: inline-block;
   width: 25%;
+  -webkit-appearance: none;
+  margin: 0;
   border-right: 1px solid #EEEEEE;
+
+  input[type="number"]::-webkit-outer-spin-button,
+  input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+  }
+
+  &.currency::after {
+    position: absolute;
+    top: 33%;
+    right: 15px;
+    content: "만원";
+    color: #B5B5B5;
+  }
 
   input {
     width: 100%;
-    margin-bottom: 0;
     padding: 13px 15px;
     border-radius: 0;
     border: 0;
@@ -164,8 +191,12 @@ const Item = styled.li`
     box-sizing: border-box;
     font-size: 16px;
     color: #333333;
-    appearance: none;
     outline: none;
+    cursor: not-allowed;
+    
+    &.active {
+      cursor: auto;
+    }
   }
 `
 
@@ -181,12 +212,12 @@ const Content = styled.select`
   border: 0;
   border-radius: 0;
 
-  option {
+  &.default {
     color: rgb(170, 170, 170);
   }
 `
 
-const ItemWrap = styled.span `
+const ItemWrap = styled.span`
 
   &::after {
     position: absolute;
