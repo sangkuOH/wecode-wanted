@@ -1,0 +1,28 @@
+{
+  "process": 
+  {
+    "total" : 0,
+    "hired" : 1,
+    "pass" : 2,
+    "accept" : 3,
+    "reject" : 4
+  },
+  "application_status" : [
+    {
+      "company" : "한화생명보험",
+      "position" : "frontend",
+      "logo_url" : "https://static.wanted.co.kr/images/wdes/0_5.bc62e98e.png",
+      "applicant_name" : "오상구",
+      "created_at" : "2020-09-09",
+      "result" : "합격"
+    },
+    {
+      "company" : "한화생명보험",
+      "position" : "frontend",
+      "logo_url" : "https://static.wanted.co.kr/images/wdes/0_5.bc62e98e.png",
+      "applicant_name" : "김기욱",
+      "created_at" : "2020-09-09",
+      "result" : "합격"
+    }
+  ]
+}

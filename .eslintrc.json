@@ -1,5 +1,9 @@
 {
-  "extends": ["react-app", "plugin:prettier/recommended"]
+  "extends": ["react-app", "plugin:prettier/recommended"],
+    "rules": {
+      "avoidEscape": true,
+      "allowTemplateLiterals": true
+    }
 }
 {
   "extends": ["react-app", "plugin:prettier/recommended"],
