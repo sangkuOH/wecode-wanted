@@ -1,0 +1,112 @@
+{
+  "position_list": [
+    {
+      "id": 106,
+      "title": "서버개발자",
+      "likes": 201,
+      "company": "모젯(정오의데이트)",
+      "country": "한국",
+      "city": "서울",
+      "img": "https://static.wanted.co.kr/images/company/2740/2wcn3jy5qjpd3w0z__400_400.jpg"
+    },
+    {
+      "id": 107,
+      "title": "Back-end 개발자",
+      "likes": 182,
+      "company": "브랜디(Brandi)",
+      "country": "한국",
+      "city": "서울",
+      "img": "https://static.wanted.co.kr/images/company/1003/16197_2_0.__400_400.jpg"
+    },
+    {
+      "id": 108,
+      "title": "광고 플랫폼 개발자(신입)",
+      "likes": 22,
+      "company": "ADOP",
+      "country": "한국",
+      "city": "서울",
+      "img": "https://static.wanted.co.kr/images/company/14590/gvftzoci0vfllyuk__400_400.jpg"
+    },
+    {
+      "id": 109,
+      "title": "웹개발자(경력) 채용",
+      "likes": 2,
+      "company": "엠마우스",
+      "country": "한국",
+      "city": "서울",
+      "img": "https://static.wanted.co.kr/images/company/3257/arga8orgrzn1zc1k__400_400.jpg"
+    },
+    {
+      "id": 110,
+      "title": "비즈하우스",
+      "likes": 22,
+      "company": "미리디",
+      "country": "한국",
+      "city": "서울",
+      "img": "https://static.wanted.co.kr/images/company/3062/wycbg64inlqelilw__400_400.jpg"
+    },
+    {
+      "id": 111,
+      "title": "솔루션개발직",
+      "likes": 25,
+      "company": "와이즈넛",
+      "country": "한국",
+      "city": "서울",
+      "img": "https://static.wanted.co.kr/images/company/2651/hw6v1ttftca9f5jd__400_400.jpg"
+    },
+    {
+      "id": 112,
+      "title": "PG 시스템 WEB 개발자",
+      "likes": 25,
+      "company": "엑심베이",
+      "country": "한국",
+      "city": "서울",
+      "img": "https://static.wanted.co.kr/images/company/258/gqrhslilzxttqbtx__400_400.jpg"
+    },
+    {
+      "id": 113,
+      "title": "서버(백엔드) 개발자",
+      "likes": 24,
+      "company": "글로벌머니익스프레스",
+      "country": "한국",
+      "city": "서울",
+      "img": "https://static.wanted.co.kr/images/company/4712/mrqubehd9frkpaay__400_400.jpg"
+    },
+    {
+      "id": 114,
+      "title": "Node.js Backend개발자",
+      "likes": 56,
+      "company": "발란",
+      "country": "한국",
+      "city": "서울",
+      "img": "https://static.wanted.co.kr/images/company/12196/cw3dptpxlmeyac4o__400_400.jpg"
+    },
+    {
+      "id": 115,
+      "title": "Backend Developer",
+      "likes": 188,
+      "company": "딜리버리히어로 코리아",
+      "country": "한국",
+      "city": "서울",
+      "img": "https://static.wanted.co.kr/images/company/88/bwaehyjladfzqwfl__400_400.jpg"
+    },
+    {
+      "id": 116,
+      "title": "프론트엔드 개발자",
+      "likes": 14,
+      "company": "스톤아이",
+      "country": "한국",
+      "city": "서울",
+      "img": "https://static.wanted.co.kr/images/company/876/17166_2_0.__400_400.jpg"
+    },
+    {
+      "id": 117,
+      "title": "개발 운영 및 QA",
+      "likes": 2,
+      "company": "펑타이코리아",
+      "country": "한국",
+      "city": "서울",
+      "img": "https://static.wanted.co.kr/images/company/1208/s0xhbqtkkj4hv9v3__400_400.jpg"
+    }
+  ]
+}
