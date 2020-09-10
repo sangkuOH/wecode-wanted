@@ -3,9 +3,16 @@ import styled from "styled-components";
 import { API } from "../../config";
 import { GoogleLogin } from "react-google-login";
 import { withRouter } from "react-router-dom";
-import { keyframes } from "styled-components";
+import { connect } from "react-redux";
+import { changeModal, changeLogin, loginWhich } from "../../store/actions";
 
-const SignUp = ({ modalActive, history }) => {
+const SignUp = ({
+  modalActive,
+  changeModal,
+  changeLogin,
+  loginWhich,
+  history,
+}) => {
   const [show, setShow] = useState(1);
   const [inputEmail, setInputEmail] = useState("");
   const [validEmail, setValidEmail] = useState(false);
@@ -47,6 +54,12 @@ const SignUp = ({ modalActive, history }) => {
       : setValidPhone(false);
   }, [inputPhone]);
 
+  useEffect(() => {
+    modalActive
+      ? (window.document.body.style.overflowY = "hidden")
+      : (window.document.body.style.overflowY = "scroll");
+  }, [modalActive]);
+
   // 첫 번째 모달 - 이메일 확인
 
   const modalOneFetch = () => {
@@ -77,12 +90,12 @@ const SignUp = ({ modalActive, history }) => {
   };
 
   // 백엔드 서버 off 시 테스트용 함수
-  const modalOneClick = () => {
-    setShow(2);
-  };
-  const modalTwoClick = () => {
-    setShow(3);
-  };
+  // const modalOneClick = () => {
+  //   setShow(2);
+  // };
+  // const modalTwoClick = () => {
+  //   setShow(3);
+  // };
 
   // 두 번째 모달 - 회원가입
 
@@ -127,6 +140,7 @@ const SignUp = ({ modalActive, history }) => {
               }
             });
             setShow(1);
+            setInputEmail("");
           }
         }
       }
@@ -203,6 +217,12 @@ const SignUp = ({ modalActive, history }) => {
   // };
 
   const loginComplete = () => {
+    alert("로그인 완료");
+    changeModal(false);
+    changeLogin(true);
+    console.log("changeLogin", changeLogin);
+    loginWhich("default");
+    setShow(0);
     document.documentElement.scrollTop = 0;
     history.push("/");
   };
@@ -210,20 +230,22 @@ const SignUp = ({ modalActive, history }) => {
   // 모달 창 취소
 
   const delModal = () => {
-    setShow(0);
+    changeModal(false);
+    setShow(1);
   };
   const returnModal = () => {
+    changeModal(false);
     setShow(1);
   };
 
   return (
     <SuContainer>
-      <SuBg active={modalActive} onClick={delModal} />
+      <SuBg active={modalActive} onClick={delModal} show={show} />
       {/* 첫 모달 창, 이메일 체크 & 소셜 로그인 버튼 有 */}
       <SuCheck active={modalActive} show={show}>
         <SuTitle>
           <span>wanted</span>
-          <CancleBtn onClick={returnModal}>
+          <CancleBtn onClick={delModal}>
             <svg width="24" height="24" viewBox="0 0 24 24" color="#999">
               <path
                 fill="currentColor"
@@ -357,8 +379,10 @@ const SignUp = ({ modalActive, history }) => {
                     localStorage.setItem("access_token", res.access_token);
                     localStorage.removeItem("googleToken");
                     console.log(res);
+                    changeModal(false);
+                    changeLogin(true);
                     document.documentElement.scrollTop = 0;
-                    history.push("/");
+                    history.push("/cv");
                   });
               }}
             />
@@ -372,7 +396,7 @@ const SignUp = ({ modalActive, history }) => {
       </SuCheck>
 
       {/* 두 번째 모달 창 - 등록되지 않은 계정, 회원가입 */}
-      <SuNotUser show={show}>
+      <SuNotUser active={modalActive} show={show}>
         <SuTitle>
           <span>회원가입</span>
           <CancleBtn onClick={returnModal}>
@@ -442,7 +466,7 @@ const SignUp = ({ modalActive, history }) => {
         </SuBody>
       </SuNotUser>
       {/* 세 번째 모달 창 - 이미 등록된 계정일 때 */}
-      <SuUser show={show}>
+      <SuUser show={show} active={modalActive}>
         <SuTitle>
           <span>비밀번호 입력</span>
           <CancleBtn onClick={returnModal}>
@@ -480,28 +504,37 @@ const SignUp = ({ modalActive, history }) => {
   );
 };
 
-export default withRouter(SignUp);
+const mapStateToProps = (state) => {
+  return {
+    modalActive: state.modalActive,
+  };
+};
+
+export default withRouter(
+  connect(mapStateToProps, { changeModal, changeLogin, loginWhich })(SignUp)
+);
 
 const SuContainer = styled.div`
   display: flex;
 `;
 
 const SuBg = styled.div`
-  display: ${(props) => (props.active ? "none" : "block")};
-  position: fixed;
+  background-color: #000;
+  display: ${(props) => (props.active ? "block" : "none")};
+  position: ${(props) => (props.active ? "fixed" : "none")};
   top: 0px;
-  opacity: 0.4;
+  opacity: ${(props) => (props.active ? "0.4" : "0")};
   width: 100%;
   height: 100vh;
-  background-color: #000;
-  z-index: 1;
+  z-index: ${(props) => (props.active ? "100" : "0")};
 `;
 
 // 첫 번째 모달 창 (이메일 확인)
 const SuCheck = styled.div`
-  transition: all 0.4s linear;
-  opacity: ${(props) => (props.show === 1 ? 1 : 0)};
+  display: ${(props) => (props.active ? "block" : "none")};
   visibility: ${(props) => (props.show === 1 ? "visible" : "hidden")};
+  transition: all 0.4s linear;
+  opacity: ${(props) => (props.active ? 1 : 0)};
   position: fixed;
   top: 50%;
   left: 50%;
@@ -512,16 +545,19 @@ const SuCheck = styled.div`
   background-color: #fff;
   position: absolute;
   overflow-y: scroll;
-  z-index: 2;
+  z-index: ${(props) => (props.active ? 200 : 0)};
 `;
 
 // 두 번째 모달 창 (이메일 없음 => 회원가입)
 const SuNotUser = styled.div`
+  position: ${(props) => (props.active ? "fixed" : "none")};
   visibility: ${(props) => (props.show === 2 ? "visible" : "hidden")};
   opacity: ${(props) => (props.show === 2 ? 1 : 0)};
   transition: all 0.4s linear;
   position: fixed;
-  z-index: 2;
+  opacity: ${(props) => (props.show === 2 ? 1 : 0)};
+  z-index: ${(props) => (props.active ? 201 : 0)};
+
   background-color: #fff;
   top: 50%;
   left: 50%;
@@ -533,11 +569,12 @@ const SuNotUser = styled.div`
 
 // 세 번째 모달창 (이메일 있음 => 로그인)
 const SuUser = styled.div`
+  position: ${(props) => (props.active ? "fixed" : "none")};
   visibility: ${(props) => (props.show === 3 ? "visible" : "hidden")};
   opacity: ${(props) => (props.show === 3 ? 1 : 0)};
   transition: all 0.4s linear;
   position: fixed;
-  z-index: 2;
+  z-index: ${(props) => (props.active ? 200 : 0)};
   background-color: #fff;
   top: 50%;
   left: 50%;
