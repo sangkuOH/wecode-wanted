@@ -5,6 +5,7 @@ import Main from "./Pages/Main/Main";
 import SignUp from "./Pages/Signup/SignUp";
 import Resume from "./Pages/Resume/Resume";
 import ResumeDetail from "./Pages/ResumeDetail/ResumeDetail";
+import TagSearch from "./Pages/TagSearch/TagSearch";
 
 class Routes extends React.Component {
   render() {
@@ -16,7 +17,7 @@ class Routes extends React.Component {
           <Route exact path="/cv/" component={Resume} />
           <Route exact path="/cv/:id" component={ResumeDetail} />
           <Route exact path="/" component={Main} />
-
+          <Route exact path="/tagsearch" component={TagSearch} />
         </Switch>
       </Router>
     );
