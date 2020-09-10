@@ -1,0 +1,81 @@
+{
+  "develop": {
+    "title": "개발",
+    "url": "/category/0",
+    "contents": [
+      { "name": "서버 개발자" },
+      { "name": "웹 개발자" },
+      { "name": "프론트엔드 개발자" },
+      { "name": "자바 개발자" },
+      { "name": "안드로이드 개발자" },
+      { "name": "iOS 개발자" },
+      { "name": "파이썬 개발자" },
+      { "name": "데이터 개발자" }
+    ]
+  },
+  "develop2": {
+    "title": "",
+    "url": "/category/0",
+    "contents": [
+      { "name": "DevOps/시스템 관리자" },
+      { "name": "Node.js 개발자" },
+      { "name": "시스템,네트워크 관리자" },
+      { "name": "머신러닝 엔지니어" },
+      { "name": "데이터 사이언티스트" },
+      { "name": "C,C++ 개발자" },
+      { "name": "개발 매니저" }
+    ]
+  },
+  "business": {
+    "title": "경영,비즈니스",
+    "url": "/category/1",
+    "contents": [
+      { "name": "경영,비즈니스" },
+      { "name": "서비스 기획자" },
+      { "name": "사업개발,기획자" },
+      { "name": "프로젝트 매니저" },
+      { "name": "전략 기획자" },
+      { "name": "운영 매니저" },
+      { "name": "경영지원 담당자" }
+    ]
+  },
+  "market": {
+    "title": "마케팅,광고",
+    "url": "/category/2",
+    "contents": [
+      { "name": "디지털 마케터" },
+      { "name": "마케터" },
+      { "name": "마케팅 전략 기획자" },
+      { "name": "콘텐츠 마케터" },
+      { "name": "브랜드 마케터" },
+      { "name": "소셜 마케팅" },
+      { "name": "그로스 해커" }
+    ]
+  },
+  "design": {
+    "title": "디자인",
+    "url": "/category/3",
+    "contents": [
+      { "name": "UX 디자이너" },
+      { "name": "UI,GUI 디자이너" },
+      { "name": "웹 디자이너" },
+      { "name": "그래픽 디자이너" },
+      { "name": "모바일 디자이너" },
+      { "name": "제품 디자이너" },
+      { "name": "BI/BX 디자이너" }
+    ]
+  },
+  "work": {
+    "title": "영업",
+    "url": "/category/4",
+    "contents": [
+      { "name": "기업영업" },
+      { "name": "외부영업" },
+      { "name": "영업 관리자" },
+      { "name": "기술영업" },
+      { "name": "주요고객사 담당자" },
+      { "name": "해외영업" },
+      { "name": "고객성공매니저" }
+    ]
+  }
+}
