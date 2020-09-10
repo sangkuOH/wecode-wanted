@@ -1,54 +1,49 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 
-class CorpIcon extends Component {
-  constructor(props){
-    super(props);
-    this.state = {
-      data: {}
-    }
-  }
 
-  componentDidMount() {
-    fetch(`/data/salary/salary.json`)
+function CorpIcon() {
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    fetch(`http://192.168.0.23:8000/positions/logo`)
+    // fetch(`/data/salary/salary.json`)
     .then((res) => res.json())
-    .then((res) => this.setState({ data: res.salary }))
+    .then((res) => setData(res.logo_list))
+  }, [])
+
+  useEffect(()=>{
+    console.log(data)
+  },[data])
+
+  const createView = (data) => {
+    return data.map((el, idx) => {
+      return <CorpIcons key={idx} style={{background: `url(${el.logo}) center / cover`}}/>;
+    })
   }
 
-  createView = (corpIcon) => {
-      let img = corpIcon.img;
-      let imgKey = Object.keys(img);
-      return imgKey.map((key, imgKey) => {
-        return <CorpIcons key={imgKey} style={{background: `url(${img[key]}) center / cover`}}/>;
-      })
-  }
-
-  render() {
-    const { corpIcon } = this.state.data;
-    return (
-      <Container>
-          {corpIcon && this.createView(corpIcon)}
-          <Last>+3989</Last>
-      </Container>
-    );
-  }
+  return (
+    <Container>
+        {data.length !== 0 && createView(data)}
+        <Last>+3989</Last>
+    </Container>
+  );
 }
 
 export default CorpIcon;
 
-const Container = styled.div `
+const Container = styled.div`
   display: flex
 `
 
-const CorpIcons = styled.div `
+const CorpIcons = styled.div`
   width: 48px;
   height: 48px;
   margin: 0 6px;
   border: 1px solid #eee;
   border-radius: 3px;
-  float: left;
 `
-const Last = styled.div `
+const Last = styled.div`
   min-width: 48px;
   margin: auto;
   font-size: 12px;
