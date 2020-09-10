@@ -1,36 +1,44 @@
 import React, { useState, useEffect } from "react";
-import { withRouter } from "react-router-dom";
+import { withRouter, Link, useHistory, useParams } from "react-router-dom";
 import styled from "styled-components";
+import { hsl } from "d3";
 
-const DetailSupport = ({ props, data, handleComponentChange }) => {
+const DetailSupport = ({ data, handleComponentChange }) => {
   const [chekedList, setChekedList] = useState([]);
   const ResumeBoxHandler = (item) => {
     if (chekedList.includes(item)) {
       setChekedList(chekedList.filter((option) => option !== item));
     } else setChekedList([...chekedList, item]);
   };
+  const nowhistory = useHistory();
+  const { id } = useParams();
 
+  const gotoHandler = () => {
+    nowhistory.push("/explore");
+  };
+  useEffect(() => console.log(id), []);
   const handleFetch = () => {
-    fetch("http://127.0.0.1:8000/user/applicationstatus", {
+    const token = localStorage.getItem("token");
+    fetch("http://3.131.35.195:8000/user/applicationstatus", {
       method: "POST",
       headers: {
-        "Content-Type": "Object",
+        Authorization: token
       },
       body: JSON.stringify({
-        // position_id: { id: match.params.id },
+        position_id: `${id}`,
       }),
     })
       .then((res) => res.json())
       .then((res) => {
-        if (res.message === "sucess") {
+        console.log(res);
+        if (res.message === "DONE") {
           alert("제출이 완료되었습니다.");
-          this.history.push("/");
+          gotoHandler();
         } else {
           alert("정상적인 접근방법이 아닙니다");
         }
       });
   };
-
   const dataInfo = data.applicant_information;
   const dataAttat = data.attatchment;
   return (
@@ -44,15 +52,15 @@ const DetailSupport = ({ props, data, handleComponentChange }) => {
         <SupportSubHeader>지원 정보</SupportSubHeader>
         <CommonInput>
           <h4>이름</h4>
-          <DataInfo> {dataInfo.name}</DataInfo>
+          <DataInfo> {dataInfo?.name}</DataInfo>
         </CommonInput>
         <CommonInput>
           <h4>이메일</h4>
-          <DataInfo>{dataInfo.email}</DataInfo>
+          <DataInfo>{dataInfo?.email}</DataInfo>
         </CommonInput>
         <CommonInput>
           <h4>연락처</h4>
-          <DataInfo>{dataInfo.phonenumber}</DataInfo>
+          <DataInfo>{dataInfo?.phonenumber}</DataInfo>
         </CommonInput>
         <CommonInput>
           <h4>추천인</h4>
@@ -60,7 +68,7 @@ const DetailSupport = ({ props, data, handleComponentChange }) => {
         </CommonInput>
         <SupportSubHeader>첨부 파일</SupportSubHeader>
         <SupportBtn>
-          {dataAttat.map((el, idx) => (
+          {dataAttat?.map((el, idx) => (
             <ResumeBox
               key={idx}
               onClick={() => ResumeBoxHandler("resume")}
@@ -68,7 +76,7 @@ const DetailSupport = ({ props, data, handleComponentChange }) => {
             >
               <input type="checkbox" name="xxx" value="yyy" />
               <ResumeTable>
-                <p>{dataInfo.name}</p>
+                <p>{dataInfo?.name}</p>
                 <ResumeSmallBox>
                   <span>{el.languae}</span>
                   <span>2020.8.31</span>
@@ -248,8 +256,8 @@ const ResumeBox = styled.div`
   display: flex;
   width: 310px;
   height: 60px;
-  ${({ isChecked }) =>
-    isChecked ? `border: 1px solid blue` : `border: 1px solid #ececec`};
+  /* ${({ isChecked }) =>
+    isChecked ? `border: 1px solid blue` : `border: 1px solid #ececec`}; */
 
   padding: 14px 0 10px 10px;
   background: #fff;

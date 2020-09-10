@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "styled-components";
-import { API } from "../../config";
+import  API  from "../../config";
 
-const ResumeListToggle = (props) => {
+const ResumeListClick = (props) => {
   const DeleteFetch = () => {
     const token = localStorage.getItem("token");
     fetch(`${API}/cv/delete/${props.id}`, {
@@ -10,14 +10,14 @@ const ResumeListToggle = (props) => {
       headers: {
         Authorization: token,
       },
-    }).then(props.resumeListToggle);
+    }).then(props.resumeListGet);
   };
 
   return (
     <>
-      <ToggleBox toggle={props.toggle} id={props.id}>
+      <ToggleBox toggle={props.isToggle} id={props.id}>
         <ul>
-          <li onClick={() => props.getFunc}>이름 변경</li>
+          <li onClick={() => props.resumeListGet}>이름 변경</li>
           <li>다운로드</li>
           <li onClick={DeleteFetch}>삭제</li>
         </ul>
@@ -26,7 +26,7 @@ const ResumeListToggle = (props) => {
   );
 };
 
-export default ResumeListToggle;
+export default ResumeListClick;
 
 const ToggleBox = styled.div`
   display: ${(props) => (props.toggle === props.id ? "block" : "none")};

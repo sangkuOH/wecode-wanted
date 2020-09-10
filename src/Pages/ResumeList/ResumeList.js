@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { withRouter } from "react-router-dom";
-import ResumeListToggle from "../ResumeListClick/ResumeListClick";
+import ResumeListClick from "../ResumeListClick/ResumeListClick";
 import { MdMoreVert } from "react-icons/md";
-import { API } from "../../config";
+import API from "../../config";
 
 const ResumeList = (props) => {
   const [data, setData] = useState({});
@@ -23,6 +23,7 @@ const ResumeList = (props) => {
       method: "GET",
       headers: {
         Authorization: token,
+        // Authorization: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxfQ.M4rMmGTT6HWBuR5kI2EZi48qHbIuR0fMk4DaeOMJ-C4"
       },
     })
       .then((res) => res.json())
@@ -49,7 +50,7 @@ const ResumeList = (props) => {
                   }}
                 >
                   <NameArea>{el.title}</NameArea>
-                  <DateArea>{el.created_at.substring}</DateArea>
+                  <DateArea>{el.created_at}</DateArea>
                 </HeaderWarp>
                 <TextArea>
                   <HiddenBox
@@ -57,12 +58,13 @@ const ResumeList = (props) => {
                       goDetail(el.id);
                       props.setToggle(0);
                     }}
-                  >
-                    <span></span>
+                    >
+                   
+                    <span> {el.completion_status}</span>
                   </HiddenBox>
                   <DisplayBox
                     onClick={() =>
-                      props.toggle !== el.id
+                      props.isToggle !== el.id
                         ? props.setToggle(el.id)
                         : props.setToggle(0)
                     }
@@ -72,9 +74,9 @@ const ResumeList = (props) => {
                 </TextArea>
               </BoxSection>
             </BoxWrap>
-            <ResumeListToggle
+            <ResumeListClick
               id={el.id}
-              toggle={props.toggle}
+              isToggle={props.isToggle}
               resumeListGet={ResumeListGet}
             />
           </BoxContainer>

@@ -3,16 +3,16 @@ import Chart from './Chart';
 import styled from 'styled-components';
 
 
-function SalaryChart(props) {
+function SalaryChart({chartData, jobValue, career, positionValue, compare}) {
   return(
     <Page>
       <Container>
         <Chart
-          chartData={props.chartData}
-          jobValue={props.jobValue}
-          career={props.career}
-          positionValue={props.positionValue}
-          compare={props.compare}
+          chartData={chartData}
+          jobValue={jobValue}
+          career={career}
+          positionValue={positionValue}
+          compare={compare}
         />
       </Container>
     </Page>

@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-import { API } from "../../config";
+import  API  from "../../config";
 import { GoogleLogin } from "react-google-login";
 import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import { changeModal, changeLogin, loginWhich } from "../../store/actions";
 
 const SignUp = ({
+
   modalActive,
   changeModal,
   changeLogin,
@@ -376,7 +377,7 @@ const SignUp = ({
                 })
                   .then((res) => res.json())
                   .then((res) => {
-                    localStorage.setItem("access_token", res.access_token);
+                    localStorage.setItem("token", res.access_token);
                     localStorage.removeItem("googleToken");
                     console.log(res);
                     changeModal(false);

@@ -6,10 +6,17 @@ function DashBoard() {
   const [ data, setData ] = useState();
 
   useEffect(() => {
-    fetch("/data/apply/apply.json")
-    .then((res) => res.json())
-    .then((res) => setData(res))
+    const token = localStorage.getItem("token");
+    // fetch("/data/apply/apply.json")
+    fetch("http://127.0.0.1:8000/user/applicationstatus", {
+      headers: {
+        Authorization: token
+      }
+    })
+    .then(res=>res.json())
+    .then(res=> setData(res))
   },[]);
+  
 
   const sumValue = (el) => {
     const data = el.process
@@ -22,16 +29,29 @@ function DashBoard() {
     }
     return objList;
   }
+  
+  const total = (el) => {
+    const test = el.process
+    let result = test.total
+    return result
+  }
 
   const createDashboard = (data) => {
     data = sumValue(data);
     return data.map((val, idx) => {
       return <dl key={idx}>
               <dt>{val.value}</dt>
-              <dd>{val.name}</dd>
+              <dd>{
+                val.name === "total" ? "전체" : "" |
+                val.name === "hired" ? "채용 완료" : "" |
+                val.name === "pass" ? "서류 통과" : "" |
+                val.name === "accept" ? "접수" : "" |
+                val.name === "reject" ? "불합격" : ""
+                }</dd>
             </dl>
     })
   }
+
 
   return(
     <Container>
@@ -39,7 +59,7 @@ function DashBoard() {
         {data && createDashboard(data)}
       </StatusSum>
       <StatusNav>
-        <StatusTotal>총 0건</StatusTotal>
+  <StatusTotal>총 {data && total(data)}건</StatusTotal>
         <SeachBar>
           <i className="fa fa-search" aria-hidden="true"></i>
           <input type="text" placeholder="회사 / 지원자명 검색"></input>

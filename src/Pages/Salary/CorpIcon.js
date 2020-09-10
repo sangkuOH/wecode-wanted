@@ -6,15 +6,11 @@ function CorpIcon() {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    fetch(`http://192.168.0.23:8000/positions/logo`)
+    fetch(`http://3.131.35.195:8000/positions/logo`)
     // fetch(`/data/salary/salary.json`)
     .then((res) => res.json())
     .then((res) => setData(res.logo_list))
   }, [])
-
-  useEffect(()=>{
-    console.log(data)
-  },[data])
 
   const createView = (data) => {
     return data.map((el, idx) => {

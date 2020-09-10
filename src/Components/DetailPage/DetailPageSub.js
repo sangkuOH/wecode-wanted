@@ -13,8 +13,12 @@ const DetailPageSub = () => {
   };
 
   useEffect(() => {
+    const token = localStorage.getItem("token");
     // fetch("/data/data.json");
-    fetch("http://127.0.0.1:8000/user/application")
+    fetch("http://3.131.35.195:8000/user/application",{
+    headers: {
+      Authorization: token
+    }})
       .then((res) => res.json())
       .then((res) => setData(res));
   }, []);

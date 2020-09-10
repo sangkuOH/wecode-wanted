@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import FavoriteIcon from "@material-ui/icons/Favorite";
 import ArrowLeftIcon from "@material-ui/icons/ArrowLeft";
@@ -15,7 +16,7 @@ function JobCardList({ el }) {
 
   return (
     <JobCardLists>
-      <a href="#">
+      <Link to={`/detail/${el.id}`}>
         <Cardheader imgUrl={el.img}>
           <ButtonTop type="button" onClick={handleClick}>
             <FavoriteIcon
@@ -55,7 +56,7 @@ function JobCardList({ el }) {
           </CompanyLocation>
           <Reward>채용보상금 1,000,000원</Reward>
         </Contents>
-      </a>
+      </Link>
     </JobCardLists>
   );
 }
