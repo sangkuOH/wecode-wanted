@@ -17,7 +17,7 @@ const DetailSupport = ({ props, data, handleComponentChange }) => {
         "Content-Type": "Object",
       },
       body: JSON.stringify({
-        position_id: { id: match.params.id },
+        // position_id: { id: match.params.id },
       }),
     })
       .then((res) => res.json())

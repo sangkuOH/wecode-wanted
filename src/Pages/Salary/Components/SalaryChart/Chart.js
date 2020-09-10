@@ -59,6 +59,7 @@ function Chart({ chartData, jobValue, career, positionValue, compare }) {
     return num ? num.toLocaleString() : "";
   }
 
+
   const convertChartData = (chartData) =>{
     let tempData = [];
     chartData.forEach(element => {
