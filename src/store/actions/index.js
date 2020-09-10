@@ -1,27 +1,27 @@
 export const changeLogin = (check) => {
   return {
-    type: "login_check",
+    type: "LOGIN_CHECK",
     payload: check,
   };
 };
 
 export const changeModal = (active) => {
   return {
-    type: "modal_active",
+    type: "MODAL_ACTIVE",
     payload: active,
   };
 };
 
 export const loginWhich = (which) => {
   return {
-    type: "login_which",
+    type: "LOGIN_WHICH",
     payload: which,
   };
 };
 
 export const dropProfile = (updown) => {
   return {
-    type: "profile_drop",
+    type: "PROFILE_DROP",
     payload: updown,
   };
 };

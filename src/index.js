@@ -13,8 +13,8 @@ const store = createStore(rootReducer);
 ReactDOM.render(
   <ThemeProvider theme={Theme}>
     <Provider store={store}>
-      <GlobalStyle />
-      <Routes />
+    <GlobalStyle />
+    <Routes />
     </Provider>
   </ThemeProvider>,
   document.getElementById("root")

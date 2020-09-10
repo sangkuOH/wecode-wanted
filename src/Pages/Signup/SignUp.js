@@ -3,8 +3,16 @@ import styled from "styled-components";
 import { API } from "../../config";
 import { GoogleLogin } from "react-google-login";
 import { withRouter } from "react-router-dom";
+import { connect } from "react-redux";
+import { changeModal, changeLogin, loginWhich } from "../../store/actions";
 
-const SignUp = ({ modalActive, history }) => {
+const SignUp = ({
+  modalActive,
+  changeModal,
+  changeLogin,
+  loginWhich,
+  history,
+}) => {
   const [show, setShow] = useState(1);
   const [inputEmail, setInputEmail] = useState("");
   const [validEmail, setValidEmail] = useState(false);

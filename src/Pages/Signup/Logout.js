@@ -16,7 +16,7 @@ const Logout = ({ changeLogin, dropProfile, loginWhich }) => {
   return (
     <LogOutContainer>
       <i>
-        <List onClick={() => logOutComplete()}>로그아웃</List>
+        <List onClick={logOutComplete}>로그아웃</List>
       </i>
       <LogOutWrap>
         <GoogleLogout
