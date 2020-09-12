@@ -66,7 +66,6 @@ const Sup = styled.sup `
 `
 const MainContainer = styled.div `
   margin-top: 50px;
-  margin-bottom: 50px;
 `
 const Wrap = styled.div `
   margin: 42px 0 40px;

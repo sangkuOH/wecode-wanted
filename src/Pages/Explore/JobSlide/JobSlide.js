@@ -8,7 +8,7 @@ import styled from "styled-components";
 const JobSlide = () => {
   const [datas, setDatas] = useState([]);
   useEffect(() => {
-    fetch("http://192.168.0.23:8000/companies")
+    fetch("http://192.168.1.140:8000/companies")
       .then((res) => res.json())
       .then((res) => setDatas(res["category_list"]));
   }, []);
@@ -53,7 +53,7 @@ const JobSlides = styled.div`
 
 const JobSlideBox = styled.div`
   height: 100px;
-  border-bottom: 1px solid rgb(224, 226, 227);s
+  border-bottom: 1px solid rgb(224, 226, 227);
 `;
 
 const MainText = styled.div`

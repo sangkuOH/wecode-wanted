@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-import DetailPageSvg from "./DetailPageSvg";
 
 import styled from "styled-components";
 
@@ -172,8 +171,6 @@ const FollowBox = styled.div`
   border-radius: 3px;
   padding: 20px;
   border:1px solid rgb(225, 226, 227);
-
-}
 `;
 
 const Section = styled.section`

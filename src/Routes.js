@@ -3,13 +3,13 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import SignUp from "./Pages/Signup/SignUp";
 import Salary from "./Pages/Salary/Salary";
 import Main from "./Pages/Main/Main";
-import SignUp from "./Pages/Signup/SignUp";
 import Resume from "./Pages/Resume/Resume";
 import ResumeDetail from "./Pages/ResumeDetail/ResumeDetail";
 import TagSearch from "./Pages/TagSearch/TagSearch";
 import DetailPage from "./Components/DetailPage/DetailPage";
 import DetailSupport from "./Components/DetailPage/DetailSupport/DetailSupport";
 import Apply from "./Pages/Apply/Apply";
+import Explore from "./Pages/Explore/Explore";
 
 class Routes extends React.Component {
   render() {
@@ -26,6 +26,7 @@ class Routes extends React.Component {
           <Route exact path="/detail/:id" component={DetailPage} />
           <Route exact path="/Support" component={DetailSupport} />
           <Route exact path="/apply" component={Apply} />
+          <Route exact path="/explore/" component={Explore} />
         </Switch>
       </Router>
     );

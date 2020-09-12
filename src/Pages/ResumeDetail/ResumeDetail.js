@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { IoMdDownload } from "react-icons/io";
-import { API } from "../../config";
+import  API  from "../../config";
 
 const ResumeDetail = (props) => {
   const [introHigh, setIntroHigh] = useState(0);
@@ -11,11 +11,11 @@ const ResumeDetail = (props) => {
   const [email, setEmail] = useState("");
   const [phone_number, setPhone] = useState("");
   const [description, setDescription] = useState("");
-  const [career, setCareer] = useState("");
-  const [education, setEducation] = useState("");
-  const [awardHistory, setAwardHistory] = useState("");
-  const [foreignLanguage, setForeignLanguage] = useState("");
-  const [link, setLink] = useState("");
+  const [career, setCareer] = useState([]);
+  const [education, setEducation] = useState([]);
+  const [award_history, setAwardHistory] = useState([]);
+  const [foreignlanguage, setForeignLanguage] = useState([]);
+  const [link, setLink] = useState([]);
 
   useEffect(() => {
     document.documentElement.scrollTop = 0;
@@ -28,7 +28,7 @@ const ResumeDetail = (props) => {
 
   const GetFunc = () => {
     const token = localStorage.getItem("token");
-    fetch(`${API}/cv/${props.match.params.id}`, {
+    fetch(`${API}/cv/1`, {
       method: "GET",
       headers: {
         Authorization: token,
@@ -41,20 +41,35 @@ const ResumeDetail = (props) => {
         setName(res.writer_name);
         setEmail(res.email);
         setPhone(res.phone_number);
+        setDescription(res.description);
+        setCareer(res.career);
+        setEducation(res.award_history);
+        setForeignLanguage(res.foreignlanguage);
+        setLink(res.link);
         console.log(res);
       });
   };
 
   const writeFunc = () => {
     const token = localStorage.getItem("token");
-    fetch(`${API}/cv/new`, {
+    fetch(`${API}/cv/${props.match.params.id}`, {
       method: "POST",
       headers: {
         Authorization: token,
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        user_email: "ssm40@naver.com",
+        title        : title,
+        writer_name  : name,
+        email        : email,
+        phone_number : phone_number,
+        description  : description,
+        career: career,
+        education: education,
+        award_history: award_history,
+        foreignlanguage: foreignlanguage,
+        link: link
+        // user_email: "ssm2@naver.com",
       }),
     }).then(() => {
       props.history.push("/cv");
@@ -94,18 +109,19 @@ const ResumeDetail = (props) => {
             type="text"
             placeholder="이력서 제목(필수)"
             defaultValue={title}
-            onChange={function titleFunc(e) {
+            onChange={(e) => {
               setTitle(e.target.value);
             }}
           />
         </ContentsName>
         <ContentsUser>
-          <input type="text" placeholder="이름(필수)" value={name} />
-          <input type="text" placeholder="이메일(필수)" value={email} />
+          <input type="text" placeholder="이름(필수)" value={name} onChange={(e) => setName(e.target.value)} />
+          <input type="text" placeholder="이메일(필수)" value={email}  onChange={(e) => setEmail(e.target.value)}/>
           <input
             type="text"
             placeholder="연락처(필수) ex) 010-0000-0000"
             value={phone_number}
+            onChange={(e) => setPhone(e.target.value)}
           />
         </ContentsUser>
         <BottomWrap>
@@ -116,10 +132,8 @@ const ResumeDetail = (props) => {
               placeholder="간단한 자기소개를 통해 이력서를 돋보이게 만들어보세요. (3~5줄 권장)"
               maxlength="2000"
               defaultValue={description}
-              onChange={function introFunc(e) {
-                setDescription(e.target.value);
-                // setIsValiIntro((e.target.value).length>0 === true);
-              }}
+              onChange={(e) => 
+                setDescription(e.target.value)}
             />
           </BottomBox>
           <BottomBox high={careerHigh}>
@@ -129,10 +143,10 @@ const ResumeDetail = (props) => {
               placeholder="경력 사항을 입력해 주세요."
               maxlength="2000"
               defaultValue={career}
-              onChange={function careerFunc(e) {
-                setCareer(e.target.value);
+              onChange={(e) => 
+                setCareer(e.target.value)}
                 // setIsValiCareer((e.target.value).length>0 === true);
-              }}
+              
             />
           </BottomBox>
           <BottomBox high={careerHigh}>
@@ -142,10 +156,9 @@ const ResumeDetail = (props) => {
               placeholder="학력 사항을 입력해 주세요."
               maxlength="2000"
               defaultValue={education}
-              onChange={function careerFunc(e) {
-                setEducation(e.target.value);
-                // setIsValiCareer((e.target.value).length>0 === true);
-              }}
+              onChange={(e) => 
+                setEducation(e.target.value)}
+            
             />
           </BottomBox>
           <BottomBox high={careerHigh}>
@@ -154,7 +167,7 @@ const ResumeDetail = (props) => {
               high={careerHigh}
               placeholder="수상 내역을 입력해 주세요."
               maxlength="2000"
-              defaultValue={awardHistory}
+              defaultValue={award_history}
               onChange={function careerFunc(e) {
                 setAwardHistory(e.target.value);
                 // setIsValiCareer((e.target.value).length>0 === true);
@@ -170,7 +183,6 @@ const ResumeDetail = (props) => {
               defaultValue={career}
               onChange={function careerFunc(e) {
                 setForeignLanguage(e.target.value);
-                // setIsValiCareer((e.target.value).length>0 === true);
               }}
             />
           </BottomBox>
@@ -183,7 +195,6 @@ const ResumeDetail = (props) => {
               defaultValue={link}
               onChange={function careerFunc(e) {
                 setLink(e.target.value);
-                // setIsValiCareer((e.target.value).length>0 === true);
               }}
             />
           </BottomBox>

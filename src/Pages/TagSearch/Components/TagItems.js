@@ -6,7 +6,7 @@ function TagItems() {
   const [tagItemData, setTagItemData] = useState([]);
 
   const getData = async () => {
-    const res = await fetch(`http://192.168.0.23:8000/companies/tags`);
+    const res = await fetch(`http://3.131.35.195:8000/companies/tags`);
     const tagList = await res.json();
 
     setTagItemData([...tagList.company_tag]);

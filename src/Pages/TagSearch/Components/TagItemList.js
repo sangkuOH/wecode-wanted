@@ -1,18 +1,21 @@
 import React from "react";
+import {Link} from "react-router-dom"
 import styled from "styled-components";
 
 function TagItemList({ el }) {
-  return (
-    <ItemList>
-      <ItemContents>
-        <ItemImg alt="company logo" src={el.logo_url} />
-        <ItemText>{el.company_name}</ItemText>
-      </ItemContents>
-      <ItemTag>
-        <span>{el.tags}</span>
-      </ItemTag>
-      <ItemBtn>팔로우</ItemBtn>
-    </ItemList>
+  return (    
+      <ItemList >
+        <Link to={`/detail/${el.position_id}`}>
+        <ItemContents>
+          <ItemImg alt="company logo" src={el.logo_url} />
+          <ItemText>{el.company_name}</ItemText>
+        </ItemContents>
+        <ItemTag>
+          <span>{el.tags}</span>
+        </ItemTag>
+        <ItemBtn>팔로우</ItemBtn>
+        </Link>
+      </ItemList>
   );
 }
 

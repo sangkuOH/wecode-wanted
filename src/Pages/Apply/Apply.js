@@ -1,6 +1,7 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
 import styled from "styled-components";
+import Nav from "../../Components/Nav/Nav";
 import Aside from "./Aside/Aside";
 import DashBoard from "./DashBoard/DashBoard";
 import mixIn from '../../Styles/Mixin';
@@ -9,6 +10,7 @@ function Apply() {
 
   return(
     <Page>
+      <Nav></Nav>
       <ApplyContainer>
         <Header>
           <li>
@@ -33,6 +35,7 @@ function Apply() {
 export default withRouter(Apply)
 
 const Page = styled.div`
+  display: flex;
   width: 100vw;
   height: 100vh;
   background-color: #F8F8FA;

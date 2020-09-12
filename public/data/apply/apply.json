@@ -1,28 +1,35 @@
 {
-  "process": 
-  {
-    "total" : 0,
-    "hired" : 1,
-    "pass" : 2,
-    "accept" : 3,
-    "reject" : 4
-  },
-  "application_status" : [
-    {
-      "company" : "한화생명보험",
-      "position" : "frontend",
-      "logo_url" : "https://static.wanted.co.kr/images/wdes/0_5.bc62e98e.png",
-      "applicant_name" : "오상구",
-      "created_at" : "2020-09-09",
-      "result" : "합격"
+    "process": {
+        "total": 3,
+        "hired": 0,
+        "pass": 0,
+        "accept": 3,
+        "reject": 0
     },
-    {
-      "company" : "한화생명보험",
-      "position" : "frontend",
-      "logo_url" : "https://static.wanted.co.kr/images/wdes/0_5.bc62e98e.png",
-      "applicant_name" : "김기욱",
-      "created_at" : "2020-09-09",
-      "result" : "합격"
-    }
-  ]
+    "application_status": [
+        {
+            "company": "엔라이즈(NRISE)",
+            "position": "파이썬 백 엔드 개발자",
+            "logo_url": "https://static.wanted.co.kr/images/wdes/0_5.5fb27012.jpg",
+            "applicant_name": "김준",
+            "created_at": "2020-09-10T18:46:46.062Z",
+            "result": "진행중"
+        },
+        {
+            "company": "스캐터랩(Scatterlab)",
+            "position": "[핑퐁] 제품 개발자 (Backend Software Engineer)",
+            "logo_url": "https://static.wanted.co.kr/images/wdes/0_5.947a9860.jpg",
+            "applicant_name": "김준",
+            "created_at": "2020-09-10T18:47:00.895Z",
+            "result": "진행중"
+        },
+        {
+            "company": "네오사피엔스(Neosapience)",
+            "position": "백엔드 개발자",
+            "logo_url": "https://static.wanted.co.kr/images/wdes/0_5.261bb488.jpg",
+            "applicant_name": "김준",
+            "created_at": "2020-09-10T18:47:06.726Z",
+            "result": "진행중"
+        }
+    ]
 }

@@ -45,7 +45,7 @@ const Nav = ({
                 <li
                   onClick={() => {
                     dropProfile(false);
-                    history.push("/");
+                    history.push("/explore");
                   }}
                   onMouseEnter={() => {
                     setMenuExplore(true);
@@ -57,7 +57,7 @@ const Nav = ({
                 <li
                   onClick={() => {
                     dropProfile(false);
-                    history.push("/");
+                    history.push("/salary");
                   }}
                   onMouseEnter={() => setMenuExplore(false)}
                 >
@@ -101,6 +101,8 @@ const Nav = ({
                 </li>
               </NavUl>
               <NavUl>
+              <i onClick={() => history.push("/tagsearch")} className="fa fa-search" aria-hidden="true"></i>
+
                 <NotLoginProfile
                   onClick={() => dropProfile(!profileDrop)}
                   loginCheck={loginCheck}
@@ -118,10 +120,10 @@ const Nav = ({
                       <Link to="/">프로필</Link>
                     </li>
                     <li>
-                      <Link to="/">제안받기 현황</Link>
+                      <Link to="/apply">제안받기 현황</Link>
                     </li>
                     <li>
-                      <Link to="/">지원현황</Link>
+                      <Link to="/apply">지원현황</Link>
                     </li>
                     <li>
                       <Link to="/">좋아요</Link>
@@ -253,6 +255,14 @@ const NavUl = styled.ul`
   display: flex;
   justify-content: center;
   align-items: center;
+  i {
+    width: 10px;
+    height: 10px;
+    margin-right: 10px;
+    margin-bottom: 3px;
+    color: #505050;
+    cursor: pointer;
+  }
   li {
     cursor: pointer;
     font-size: 14px;
@@ -324,6 +334,10 @@ const ProfileDropDown = styled.div`
       font-weight: 400;
       font-size: 15px;
       color: #333;
+      
+      a{
+        color: black;
+      }
     }
     li:first-child {
       padding: 10px 0;

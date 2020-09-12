@@ -145,6 +145,7 @@ export default Filter;
 const Page = styled.div`
   left: 0;
   right: 0;
+  margin-top: 51px;
   bottom: -24px;
 `
 

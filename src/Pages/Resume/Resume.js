@@ -5,6 +5,9 @@ import fileUpload from "../../ImagesResume/file-upload-solid.svg";
 import newResume from "../..//ImagesResume/file-alt-regular.svg";
 import ResumeList from "../ResumeList/ResumeList";
 import { connect } from "react-redux";
+import Nav from "../../Components/Nav/Nav";
+import API from "../../config";
+
 
 const Resume = ({ loginCheck, history }) => {
   const [isToggle, setToggle] = useState(0);
@@ -12,16 +15,33 @@ const Resume = ({ loginCheck, history }) => {
   useEffect(() => {
     document.documentElement.scrollTop = 0;
   }, []);
-
   const ResumeBtnFunction = (value) => {
     if (value === 1) {
-      history.push("/cv/0");
+      history.push("/cv/new");
     } else {
-      alert("파일 업로드 서비스는 곧 업데이트 됩니다!");
+      alert("준비중입니다.");
     }
   };
 
+  const newResumeFunc = () => {
+    const token = localStorage.getItem("token");
+    fetch(`${API}/cv/new`, {
+      method: "POST",
+      headers: {
+        Authorization: token,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        // user_email: "ssm2@naver.com",
+      }),
+    }).then(() => {
+      history.push("/cv");
+    });
+  }
+
   return (
+    <>
+    <Nav />
     <RsContainer>
       <RsNotLogin loginCheck={loginCheck}>
         <NotLoginBox height="676px">
@@ -34,11 +54,11 @@ const Resume = ({ loginCheck, history }) => {
             <h4>
               서류 통과가 잘 되는 원티드 이력서를 쉽고 빠르게 작성해 보세요.
             </h4>
-            <BtnBox>
+            <BtnBox >
               <UserBtn border white>
                 이력서 관리
               </UserBtn>
-              <UserBtn border>새 이력서 작성</UserBtn>
+              <UserBtn onClick={newResumeFunc} border>새 이력서 작성</UserBtn>
             </BtnBox>
           </NotLoginText>
           <IntroBackground
@@ -131,6 +151,7 @@ const Resume = ({ loginCheck, history }) => {
         </RsLoginWrap>
       </RsLogin>
     </RsContainer>
+    </>
   );
 };
 
@@ -295,8 +316,8 @@ const Icon = styled.div`
   background-position: 50%;
   background-size: cover;
   position: absolute;
-  top: 50%;
-  left: 50%;
+  top: 33%;
+  left: 33%;
   width: 26px;
   height: 26px;
 `;

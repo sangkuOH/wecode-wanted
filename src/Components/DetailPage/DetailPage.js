@@ -1,17 +1,21 @@
 import React, { useState, useEffect } from "react";
+import Nav from "../../Components/Nav/Nav";
 import DetailProps from "./DetailProps";
 import DetailPageSub from "./DetailPageSub";
+import JobCard from "../../Components/JobCard/JobCard";
 import styled from "styled-components";
 
 const DetailPage = (props) => {
   const [data, setData] = useState([]);
   useEffect(() => {
-    fetch(`http://192.168.0.23:8000/positions/${106}`)
-      .then((res) => res.json())
-      .then((res) => setData([res.detail]));
+    fetch(`http://3.131.35.195:8000/positions/${props.match.params.id}`)
+    .then((res) => res.json())
+    .then((res) => setData([res.detail]))
   }, []);
 
   return (
+    <>
+    <Nav />
     <DetailPageContainer>
       <DetailBox>
         <DetailPageMain>
@@ -21,7 +25,11 @@ const DetailPage = (props) => {
         </DetailPageMain>
         <DetailPageSub />
       </DetailBox>
+      <CardWrap>
+      <JobCard/>
+      </CardWrap>
     </DetailPageContainer>
+    </>
   );
 };
 
@@ -35,13 +43,19 @@ const DetailPageContainer = styled.div`
   width: 1060px;
   height: 100%;
   margin: 0 auto;
+  margin-top: 75px;
 `;
 
 const DetailBox = styled.div`
   display: flex;
   width: 1060px;
   height: 100%;
+  margin-bottom: 40px;
   margin-top: 30px;
 `;
 
+const CardWrap = styled.div`
+    margin: 0;
+    margin-right: 43px;
+`
 export default DetailPage;

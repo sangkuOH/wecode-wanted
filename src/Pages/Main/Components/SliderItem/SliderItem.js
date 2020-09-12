@@ -6,7 +6,7 @@ function SliderItem({ slideLength, slideSpeed, curIndex }) {
   const [slideData, setSlideData] = useState([]);
 
   const getData = async () => {
-    const res = await fetch(`http://192.168.0.23:8000/companies/premium`);
+    const res = await fetch(`http://3.131.35.195:8000/companies/premium`);
     const dataList = await res.json();
     setSlideData([...dataList.company_list]);
   };

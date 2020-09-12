@@ -12,7 +12,7 @@ function List({data}) {
         </CompanyList>
         <PositionList>{el.position}</PositionList>
         <PersonList>{el.applicant_name}</PersonList>
-        <DateList>{el.created_at}</DateList>
+        <DateList>{el.created_at.substring(0, 10)}</DateList>
         <ResultList>{el.result}</ResultList>
       </StatusList>
     ))
@@ -34,6 +34,7 @@ const StatusList = styled.div`
   overflow: hidden;
   padding: 10px;
   font-size: 12px;
+  line-height: 19px;
   font-weight: 500;
   word-break: break-all;
   white-space: nowrap;
@@ -58,6 +59,7 @@ const CompanyList = styled.div`
 
 const PositionList = styled.div`
   width: 25%;
+  overflow: hidden;
 `
 
 const PersonList = styled.div`

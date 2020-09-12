@@ -5,19 +5,21 @@ import JobCard from "../../../../Components/JobCard/JobCard";
 
 function MainPosition() {
   return (
+    <>
     <PositionContainer>
       <JobCardTitle>
         <RecommendText contens="나에게 딱 맞는 포지션" />
         <ViewMore href="#">더 보기</ViewMore>
       </JobCardTitle>
-      <JobCard />
     </PositionContainer>
+    <JobCard />
+    </>
   );
 }
 
 const PositionContainer = styled.div`
   position: relative;
-  margin: 60px auto;
+  margin: 0 auto;
   max-width: 1060px;
 `;
 
