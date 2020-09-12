@@ -17,8 +17,8 @@
 
 ## 팀원
 
-FrontEnd: 마상원,오상구,박주엽,손수민
-BackEnd: 김기욱,이건규 (https://github.com/wecode-bootcamp-korea/11-WeWantedExplorers-backend)
+- FrontEnd: 마상원,오상구,박주엽,손수민
+- BackEnd: 김기욱,이건규 (https://github.com/wecode-bootcamp-korea/11-WeWantedExplorers-backend)
 
 
 ## 구현 페이지 및 기능
