@@ -17,18 +17,21 @@
 
 ## 팀원
 
-- 마상원
-- 오상구
-- 박주엽
-- 손수민 
+FrontEnd: 마상원,오상구,박주엽,손수민
+BackEnd: 김기욱,이건규 (https://github.com/wecode-bootcamp-korea/11-WeWantedExplorers-backend)
+
 
 ## 구현 페이지 및 기능
 
 ### 1. 기술 스택
-
 - HTML, CSS, JS(es6+)
 - React(CRA 세팅), Styled-Components(SCSS)
 - React Hooks
+- React-Router-DOM
+- Routes.js 의 path 를 이용한 동적 라우팅
+- 공통 Component 재활용
+- fetch를 이용한 API 호출
+- map을 이용한 jsx 리턴
 
 ### 2. 협업 툴
 
@@ -49,8 +52,14 @@
 #### 직군별 연봉페이지 
 
 #### 탐색 페이지
+- 개발자 카테고리 슬라이더 구현 (fetch로 백엔드와 통신)
+- 컴포넌트 재사용
+- 채용 컴포넌트 재사용
 
-#### 지원하기 페이지 
+#### 상세페이지(지원하기)
+- 상세페이지 UI 구현 (fetch 백엔드와 통신)
+- 지원하기 UI 구현 (fetch 백엔드와 통신)
+- 지원하기 제출시 지원현황 페이지로 정보 전달 (fetch 백엔드와 통신, 동적라우팅 
 
 #### 이력서 페이지 
 
