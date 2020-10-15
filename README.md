@@ -1,65 +1,65 @@
-## 11기 2차 프로젝트: Wanted 클론코딩(front-end)
+# wecode clone 프로젝트: Wanted(front-end)
 
 
-### 프로젝트 소개 및 목적 
+# 🙋‍♂️ member
+FE: 오상구, 박주엽, 손수민, 마상원
+BE: 김기욱, 이건규
 
-- 소개: 디지털 분야 전문. 기업이 먼저 면접을 제안하는 매치업 서비스를 클론 코딩하는 프로젝트
-- 목적[ [wecode 프로젝트 체크 리스트](https://www.notion.so/2-5ce37997b5db494ea67c5387eb8850f4)]
-  1. Progress: Scrum 진행 방식에 대해 이해하고 적용하면서 프로젝트를 진행한다 
-  2. Communication: 협업 프로젝트를 통해 프론트 간의, 또한 백엔드와의 의사소통에서 필요한 내용들을 경험한다. 매일 아침 스탠드업 미팅을 가진다.
-  3. React: 함수형 React 컴포넌트, Hook을 사용하여 데이터 통신, 컴포넌트 분리 및 관리, 컴포넌트 간 데이터 바인딩을 적용해 본다.
-  4. Styled-Components: js 파일 안에서 컴포넌트의 스타일을 지정하고, 컴포넌트의 상태를 props로 받아 스타일 적용을 다르게 할 수 있다.
-  5. Network: fetch를 사용하여 서버 api에 요청하고 응답받은 데이터를 화면에 보여준다.
+# ⏰ Project Term
+- 12 Days(2020. 8. 31 ~ 2020. 9. 21)
 
-## 개발 기간
+# ⚙️ Process
+- Git 레포지토리 초기세팅
+- CRA 초기세팅
+- 구현 기능 탐색
+- 개발 파트 선택 및 정리
+- 1 Week sprint Meeting
+- Daily 5 min meeting
 
-- 2020년 8월 31일 ~ 2020년 9월 11일(12일)
-
-## 팀원
-
-- FrontEnd: 마상원,오상구,박주엽,손수민
-- BackEnd: 김기욱,이건규 (https://github.com/wecode-bootcamp-korea/11-WeWantedExplorers-backend)
-
-
-## 구현 페이지 및 기능
-
-### 1. 기술 스택
-- HTML, CSS, JS(es6+)
-- React(CRA 세팅), Styled-Components(SCSS)
-- React Hooks
-- React-Router-DOM
-- Routes.js 의 path 를 이용한 동적 라우팅
-- 공통 Component 재활용
-- fetch를 이용한 API 호출
-- map을 이용한 jsx 리턴
-
-### 2. 협업 툴
-
+# Comunication
 - Git
 - Slack
 - Trello
 - Google Meet
 - Zoom
 
-### 3. 구현 기능
+# 💻 사용기술
+- React.js(functional componets)
+- React Router
+- styled-components
+- RESTful API
+- D3.js
+- Git
 
-#### 네비게이션 바
+# 👍 주요 구현 사항
+직접 구현한 기능은 ✅, 팀원이 구현한 기능은 ✓ 표시
+1) 📄 회원가입 / 로그인 페이지
 
-#### 로그인 및 회원가입 
+✓Modal login
+✓이메일 및 패스워드 양식 확인 기능
+✓회원가입 기능(약관 동의 및 특정 조건)
+✓SNS 로그인 기능
+2) 📄 메인페이지
 
-#### 메인 페이지
+✓이미지 슬라이드
+✓scroll Pagination
+3) 📄 탐색페이지
 
-#### 직군별 연봉페이지 
+✓이미지 슬라이드
+✓각 회사 페이지의 세부 data 연동
+✓login 계정의 유저정보, 이력서 정보 연동
+✓파일 업로드 기능
+✓특정 회사 지원하기 기능
+3) 📄 직군별 연봉 페이지
 
-#### 탐색 페이지
-- 개발자 카테고리 슬라이더 구현 (fetch로 백엔드와 통신)
-- 컴포넌트 재사용
-- 채용 컴포넌트 재사용
+✅직군, 직무, 연봉의 filter 기능
+✅filter 조건에 따른 chart 연봉데이터 반영
+✅선택 연봉에 따른 특정 chart 컬러 변경
+✅평균 연봉 데이터와 임의의 연봉데이터의 % 비교
+✅pagination component의 조건부 렌더링 적용
 
-#### 상세페이지(지원하기)
-- 상세페이지 UI 구현 (fetch 백엔드와 통신)
-- 지원하기 UI 구현 (fetch 백엔드와 통신)
-- 지원하기 제출시 지원현황 페이지로 정보 전달 (fetch 백엔드와 통신, 동적라우팅 
+4) 📄 지원현황 페이지
 
-#### 이력서 페이지 
-
+✅login 계정의 지원 내역 data 연동
+✅지원 현황 요약 확인
+✅지원 현황 세부 확인
